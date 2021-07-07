@@ -1,0 +1,19 @@
+// Initialize Variables
+grav = 0.2; 
+hsp = 0;
+vsp = 0;
+jumpspeed = 7;
+movespeed = 4;
+maxFallSpeed = 10;
+jumps = 1;
+key_lives = 3;
+ground_pound = 0;
+ground_pound_spd = 2 * maxFallSpeed;
+fric = 0.1;
+prevHsp = 0;
+maxHsp = 20;
+bouncespeed = jumpspeed * 1.25
+ground_pound_hit_stun = 15;
+ground_pound_hit_stun_timer = 0;
+dmg_invulnerability = 60;
+dmg_invulnerability_timer = 0;
