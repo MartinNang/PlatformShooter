@@ -1,12 +1,5 @@
 /// @description Hier Beschreibung einfügen
 // Sie können Ihren Code in diesem Editor schreiben
-var dirToKey;
-/*key_player_inst = instance_nearest(x, y, obj_player_key);
-	if (key_player_inst != noone)
-	dirToKey = x < key_player_inst.x ? 1 : -1;
-	else dirToKey = -1;
-	
-hsp = walkspd * dirToKey;*/
 
 if (vsp < maxFallSpeed) {
 	vsp += grav;	
@@ -24,16 +17,19 @@ if (place_meeting(x, y+1, obj_barrier)) {
 	var colliding_barrier_list = ds_list_create();
 	var colliding_barrier_num = instance_place_list(x, y+1, obj_barrier, colliding_barrier_list, false);
 	if colliding_barrier_num > 0 {
-		var playerWalksOnHitTile = false;
+		var walksOnHitTile = false;
 	    for (var i = 0; i < colliding_barrier_num; ++i;) {
 			var colliding_barrier_inst = colliding_barrier_list[| i];
 	        if (colliding_barrier_inst.hit == 1) {
-				if (!playerWalksOnHitTile) {
+				if (!walksOnHitTile) {
 					vsp -= jumpspeed;
-					playerWalksOnHitTile = true;
+					walksOnHitTile = true;
+					//TODO: animate destruction (bounce up and back to boss)
+					boss_above.hp -= 50;
+					instance_destroy(self);
 				}
 			} else if (colliding_barrier_inst.image_index > 0) {
-				//push player in other direction
+				//push object in other direction
 				if (colliding_barrier_inst.wave_from_left == 0 && colliding_barrier_inst.wave_from_right == 1) {
 					hsp -= 15;
 				} 

@@ -36,3 +36,5 @@ if (distance_to_object(obj_player_mouse) < range) {
 	shadow_spawn_cnt--;
 
 }
+
+if hp < 0 instance_destroy(self);

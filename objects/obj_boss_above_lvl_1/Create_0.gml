@@ -13,7 +13,7 @@ frict = 0.5; //0 < x <= 1
 grav = 0.75; //0 <= x < inf
 maxFallSpeed = 20;
 maxHsp = 15;
-range = 500;
+range = 1000;
 jumpSpd = 20;
 hspJmpSpd = 5;
 enemy_timer_max = 180;

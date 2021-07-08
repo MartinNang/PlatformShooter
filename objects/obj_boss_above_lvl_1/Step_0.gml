@@ -73,8 +73,6 @@ if (place_meeting(x, y + vsp, obj_plat) && vsp >= 0) {
 	vsp = 0;
 }
 
-//TODO: implementing boss vulnerability (get hit during a barrier-based attack)
-
 if (place_meeting(x, y + vsp, obj_barrier)) { // TODO: f me
 	barr = instance_nearest(x, y + vsp, obj_barrier);
 	if (barr.hit_below == 1 && hit_lockdown == 0) {
@@ -90,3 +88,5 @@ if (place_meeting(x, y + vsp, obj_barrier)) { // TODO: f me
 
 x += hsp;
 y += vsp;
+
+if hp < 0 instance_destroy(self);
