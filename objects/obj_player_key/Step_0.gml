@@ -21,48 +21,48 @@ if (vsp < maxFallSpeed) {
 }
 
 
-	if (place_meeting(x, y+1, obj_barrier)) {
-		jumps = 1;
-		vsp = 0;
+if (place_meeting(x, y+1, obj_barrier)) {
+	jumps = 1;
+	vsp = 0;
 	
-			var colliding_barrier_list = ds_list_create();
-			var colliding_barrier_num = instance_place_list(x, y+1, obj_barrier, colliding_barrier_list, false);
-			if colliding_barrier_num > 0 {
-				var playerWalksOnHitTile = false;
-			    for (var i = 0; i < colliding_barrier_num; ++i;) {
-					var colliding_barrier_inst = colliding_barrier_list[| i];
-			        if (colliding_barrier_inst.hit == 1 && colliding_barrier_inst.hit_below == 1 && colliding_barrier_inst.hit_above == 0) {
-						if (!playerWalksOnHitTile) {
-							vsp -= bouncespeed;
-							playerWalksOnHitTile = true;
-						}
-					} else if (ground_pound_hit_stun_timer == 0) {
-						if (colliding_barrier_inst.light_hit > 0) {
-						//make player bounce away
-						//vsp -= bouncespeed/3*2;
-						if (colliding_barrier_inst.wave_from_left == 0 && colliding_barrier_inst.wave_from_right == 1) {
-							//hsp -= bouncespeed;
-							hsp -= 2;
-						} else if (colliding_barrier_inst.wave_from_left == 1 && colliding_barrier_inst.wave_from_right == 0) {
-							//hsp += bouncespeed;
-							hsp += 2;
-						}				
-					} else if (colliding_barrier_inst.v_light_hit > 0) {
-						//push player in other direction
-						if (colliding_barrier_inst.wave_from_left == 0 && colliding_barrier_inst.wave_from_right == 1) {
-							hsp -= 1;
-						} else if (colliding_barrier_inst.wave_from_left == 1 && colliding_barrier_inst.wave_from_right == 0) {
-							hsp += 1;
-						}
+	var colliding_barrier_list = ds_list_create();
+	var colliding_barrier_num = instance_place_list(x, y+1, obj_barrier, colliding_barrier_list, false);
+	if colliding_barrier_num > 0 {
+		var playerWalksOnHitTile = false;
+		for (var i = 0; i < colliding_barrier_num; ++i;) {
+			var colliding_barrier_inst = colliding_barrier_list[| i];
+			if (colliding_barrier_inst.hit_below == 1 && colliding_barrier_inst.hit_above == 0) {
+				if (colliding_barrier_inst.hit == 1)  {
+					if (!playerWalksOnHitTile) {
+						vsp -= bouncespeed;
+						playerWalksOnHitTile = true;
 					}
+				} 
+				else if (colliding_barrier_inst.light_hit > 0) {
+					//make player bounce away
+					//vsp -= bouncespeed/3*2;
+					if (colliding_barrier_inst.wave_from_left == 0 && colliding_barrier_inst.wave_from_right == 1) {
+						//hsp -= bouncespeed;
+						hsp -= 2;
+					} else if (colliding_barrier_inst.wave_from_left == 1 && colliding_barrier_inst.wave_from_right == 0) {
+						//hsp += bouncespeed;
+						hsp += 2;
+					}				
+				} else if (colliding_barrier_inst.v_light_hit > 0) {
+					//push player in other direction
+					if (colliding_barrier_inst.wave_from_left == 0 && colliding_barrier_inst.wave_from_right == 1) {
+						hsp -= 1;
+					} else if (colliding_barrier_inst.wave_from_left == 1 && colliding_barrier_inst.wave_from_right == 0) {
+						hsp += 1;
 					}
-					//TODO: add cooldown for pushback
-			    }
+				}
+				//TODO: add cooldown for pushback
 			}
-			ds_list_destroy(colliding_barrier_list);
-		
-		ground_pound = 0;
+		}
 	}
+	ds_list_destroy(colliding_barrier_list);	
+	ground_pound = 0;
+}
  
  if (ground_pound_hit_stun_timer > 0) {
 	ground_pound_hit_stun_timer--;

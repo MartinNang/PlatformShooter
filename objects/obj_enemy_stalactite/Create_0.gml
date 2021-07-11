@@ -6,3 +6,4 @@ drop_speed = 10;
 hp = 50;
 max_random_start_lock = 60;
 random_start_lock = irandom_range(0, max_random_start_lock);
+dropping = false;

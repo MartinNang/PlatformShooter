@@ -36,7 +36,10 @@ if colliding_barrier_num > 0 {
 	for (var i = 0; i < colliding_barrier_num; ++i;) {
 		var colliding_barrier_inst = colliding_barrier_list[| i];
 		if (colliding_barrier_inst.hit_above == 1) {
-			acid_drop_timer = 0;
+			if (!dropping) {
+				dropping = true;
+				acid_drop_timer = 0;
+			}
 		}
 	}
 }

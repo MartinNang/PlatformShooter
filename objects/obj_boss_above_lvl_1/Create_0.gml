@@ -20,4 +20,4 @@ enemy_timer_max = 180;
 enemy_timer = enemy_timer_max;
 hit_lockdown = 0;
 hit_lockdown_max = 90;
-image_speed = 0;
+//image_speed = 0;

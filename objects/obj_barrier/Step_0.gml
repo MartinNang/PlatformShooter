@@ -19,6 +19,8 @@ if (image_index > image_number - 1) {
 	hit = 0;
 	light_hit = 0;
 	v_light_hit = 0;
+	hit_above = 0;
+	hit_below = 0;
 }
 
 
@@ -60,8 +62,12 @@ if (place_meeting(x, y-1, obj_player_key)) {
 		
 		left_barrier_inst.wave_from_right = 1;
 		left_barrier_inst.light_hit = 1;
+		left_barrier_inst.hit_above = hit_above;
+		left_barrier_inst.hit_below = hit_below;
 		right_barrier_inst.wave_from_left = 1;
 		right_barrier_inst.light_hit = 1;
+		right_barrier_inst.hit_above = hit_above;
+		right_barrier_inst.hit_below = hit_below;
 	}
 	
 	//Handle neighbours of neighbours
@@ -74,8 +80,12 @@ if (place_meeting(x, y-1, obj_player_key)) {
 		
 		left_left_barrier_inst.wave_from_right = 1;
 		left_left_barrier_inst.v_light_hit = 1;
+		left_left_barrier_inst.hit_above = hit_above;
+		left_left_barrier_inst.hit_below = hit_below;
 		right_right_barrier_inst.wave_from_left = 1;
 		right_right_barrier_inst.v_light_hit = 1;
+		right_right_barrier_inst.hit_above = hit_above;
+		right_right_barrier_inst.hit_below = hit_below;
 		
 		hit_below = 0;
 		hit_above = 0;

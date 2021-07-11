@@ -44,6 +44,7 @@
     {"id":{"name":"spr_health_heart","path":"sprites/spr_health_heart/spr_health_heart.yy",},"order":13,},
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"order":13,},
     {"id":{"name":"spr_enemy_stalactite","path":"sprites/spr_enemy_stalactite/spr_enemy_stalactite.yy",},"order":7,},
+    {"id":{"name":"lower_boss_animation_0000_Ebene_7","path":"sprites/lower_boss_animation_0000_Ebene_7/lower_boss_animation_0000_Ebene_7.yy",},"order":44,},
     {"id":{"name":"spr_player_mouse","path":"sprites/spr_player_mouse/spr_player_mouse.yy",},"order":2,},
     {"id":{"name":"obj_boss_below_lvl_1","path":"objects/obj_boss_below_lvl_1/obj_boss_below_lvl_1.yy",},"order":14,},
     {"id":{"name":"obj_odd_bullet","path":"objects/obj_odd_bullet/obj_odd_bullet.yy",},"order":15,},
